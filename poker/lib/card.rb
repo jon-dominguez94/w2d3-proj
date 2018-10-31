@@ -1,7 +1,7 @@
-class Card
+SUITS = ['heart', 'spade', 'club', 'diamond']
+VALUES = ('1'..'10').to_a + ['j', 'q', 'k', 'a']
 
-  SUITS = ['heart', 'spade', 'club', 'diamond']
-  VALUES = ('1'..'10').to_a + ['a', 'j', 'q', 'k']
+class Card
 
   attr_reader :suit, :value
 
@@ -9,6 +9,10 @@ class Card
     raise ArgumentError unless SUITS.include?(suit) && VALUES.include?(value.to_s)
     @suit = suit
     @value = value.to_s
+  end
+
+  def inspect
+    "#{value} of #{suit}s"
   end
 
 end
