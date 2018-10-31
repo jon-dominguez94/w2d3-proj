@@ -11,33 +11,62 @@ class Hand
     @user_hand = user_hand
   end
 
-  def is_flush?
-    suits = user_hand.map {|card| card.suit }
-    suits.uniq.length == 1
+  def royal
+    idxs = user_hand.map {|card| VALUES.index(card.value) }.sort
+    straight_flush && (idxs == [8,9,10,11,12])
   end
 
-  def of_kind?(num)
-    hash = Hash.new(0)
-    user_hand.each do |card|
-      hash[card.value] += 1
-    end
-
-    hash.values.max == num
-    # case hash[-1][1]
-    # when 4
-    #   p "four of a kind "
-    # when 3
-    #   p "three of a kind"
-    # when 2
-    #   p "two of a kind"
-    # end
+  def straight_flush
+    is_straight? && is_flush?
   end
 
   def is_four?
     of_kind?(4)
   end
+
   def is_fullhouse?
-    sorted = user_hand.sort_by {|card| card.value}
+    get_hash.values.sort == [2,3]
+  end
+
+  def is_flush?
+    suits = user_hand.map {|card| card.suit }
+    suits.uniq.length == 1
+  end
+
+  def is_straight?
+    straight = user_hand.map {|card| VALUES.index(card.value) }.sort
+    if straight.max == 12
+      straight.max - straight.min == 4 || straight[-2] == 3
+    else
+      straight.max - straight.min == 4
+    end
+  end
+
+  def is_three?
+    of_kind?(3)
+  end
+
+  def two_pair?
+    get_hash.values.sort == [1,2,2]
+  end
+
+  def a_pair?
+    of_kind?(2)
+  end
+
+  private
+
+  def of_kind?(num)
+    get_hash.values.max == num
+
+  end
+
+  def get_hash
+    hash = Hash.new(0)
+    user_hand.each do |card|
+      hash[card.value] += 1
+    end
+    hash
   end
 
 end
