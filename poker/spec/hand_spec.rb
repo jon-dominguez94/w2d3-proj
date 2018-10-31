@@ -40,4 +40,13 @@ RSpec.describe Hand do
       expect(random.is_straight_flush?).to be(false)
     end
   end
+
+  describe '#is_flush?' do
+    it 'returns true if hand is a flush' do
+      expect(royal.is_flush?).to be(true)
+    end
+    it 'returns false if hand is not a flush' do
+      expect(random.is_flush?).to be(false)
+    end
+  end
 end
