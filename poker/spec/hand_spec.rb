@@ -81,4 +81,15 @@ RSpec.describe Hand do
     end
   end
 
+  let(:two_p) { Hand.new([card,card,k_h,k_h,a_h]) }
+
+  describe '#a_pair?' do
+    it 'returns true if hand is a pair' do
+      expect(two_p.a_pair?).to be(true)
+    end
+    it 'returns false if hand is not a pair' do
+      expect(random.a_pair?).to be(false)
+    end
+  end
+
 end
