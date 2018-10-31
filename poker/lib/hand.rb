@@ -11,12 +11,12 @@ class Hand
     @user_hand = user_hand
   end
 
-  def royal
+  def is_royal?
     idxs = user_hand.map {|card| VALUES.index(card.value) }.sort
-    straight_flush && (idxs == [8,9,10,11,12])
+    is_straight_flush? && (idxs == [8,9,10,11,12])
   end
 
-  def straight_flush
+  def is_straight_flush?
     is_straight? && is_flush?
   end
 
