@@ -1,5 +1,5 @@
 SUITS = ['heart', 'spade', 'club', 'diamond']
-VALUES = ('1'..'10').to_a + ['j', 'q', 'k', 'a']
+VALUES = ('2'..'10').to_a + ['j', 'q', 'k', 'a']
 
 class Card
 

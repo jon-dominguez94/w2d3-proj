@@ -2,6 +2,8 @@ require_relative 'card'
 
 class Deck
 
+  attr_reader :cards
+
   def initialize
     @cards = []
     populate
@@ -13,8 +15,6 @@ class Deck
         @cards << Card.new(suit, value)
       end
     end
-    p @cards
+    nil
   end
 end
-
-d = Deck.new
