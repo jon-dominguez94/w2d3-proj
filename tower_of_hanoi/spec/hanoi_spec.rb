@@ -25,4 +25,21 @@ RSpec.describe Hanoi do
     end
   end
 
+  describe "#won?" do
+    before(:each) {
+      game.move(0,2)
+      game.move(0,1)
+      game.move(2,1)
+      game.move(0,2)
+      game.move(1,0)
+      game.move(1,2)
+    }
+    it 'returns false if the game is not won' do
+      expect(game.won?).to be(false)
+    end
+    it 'returns true if the game is won' do
+      game.move(0,2)
+      expect(game.won?).to be(true)
+    end
+  end
 end
