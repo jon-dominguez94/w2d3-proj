@@ -58,4 +58,16 @@ RSpec.describe Hand do
       expect(random.is_straight?).to be(false)
     end
   end
+
+  let(:four) { Hand.new([card,card,card,card,a_h]) }
+
+  describe '#is_four?' do
+    it 'returns true if hand is a 4 of a kind' do
+      expect(four.is_four?).to be(true)
+    end
+    it 'returns false if hand is not a 4 of a kind' do
+      expect(random.is_four?).to be(false)
+    end
+  end
+
 end
