@@ -14,3 +14,15 @@ def two_sum(array)
   end
   return result
 end
+
+def my_transpose(array)
+  raise ArgumentError unless array.is_a?(Array)
+  result = Array.new(array.length) {[]}
+  array.each_with_index do |row, i|
+    row.each_index do |j|
+      result[j][i] = array[i][j]
+    end
+  end
+  result
+
+end

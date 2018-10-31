@@ -31,3 +31,25 @@ describe '#two_sum' do
     end
   end
 end
+
+describe '#my_transpose' do
+  context 'when given a valid argument' do
+    let(:array) {[
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8]
+  ]}
+    it 'returns an array with transpose values' do
+      expect(my_transpose(array)).to eq(array.transpose)
+    end
+    it 'Does not call the transpose method' do
+      expect(array).to_not receive(:transpose)
+      my_transpose(array)
+    end
+  end
+  context 'when given an invalid argument' do
+    it 'raises an error' do
+      expect{my_transpose("a")}.to raise_error(ArgumentError)
+    end
+  end
+end
