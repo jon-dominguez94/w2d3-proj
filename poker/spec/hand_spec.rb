@@ -23,12 +23,21 @@ RSpec.describe Hand do
   let(:royal) { Hand.new([ten_h, j_h, q_h, k_h, a_h])}
   let(:random) { Hand.new([ten_h, j_h, q_h, k_h, card])}
 
-  describe '#royal' do
+  describe '#is_royal?' do
     it 'returns true if hand is a royal flush' do
       expect(royal.is_royal?).to be(true)
     end
     it 'returns false if hand is not a royal flush' do
       expect(random.is_royal?).to be(false)
+    end
+  end
+
+  describe '#is_straight_flush?' do
+    it 'returns true if hand is a straight flush' do
+      expect(royal.is_straight_flush?).to be(true)
+    end
+    it 'returns false if hand is not a straight flush' do
+      expect(random.is_straight_flush?).to be(false)
     end
   end
 end
