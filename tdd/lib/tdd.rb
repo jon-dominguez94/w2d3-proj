@@ -4,3 +4,13 @@ def my_uniq(array)
   array.each {|el| arr << el unless arr.include?(el)}
   arr
 end
+
+def two_sum(array)
+  result = []
+  array.each_index do |i|
+    (i+1...array.length).each do |j|
+      result << [i,j] if array[i] + array[j] ==0
+    end
+  end
+  return result
+end
