@@ -70,4 +70,15 @@ RSpec.describe Hand do
     end
   end
 
+  let(:three) { Hand.new([card,card,card,k_h,a_h]) }
+
+  describe '#is_three?' do
+    it 'returns true if hand is a 3 of a kind' do
+      expect(three.is_three?).to be(true)
+    end
+    it 'returns false if hand is not a 3 of a kind' do
+      expect(random.is_three?).to be(false)
+    end
+  end
+
 end
