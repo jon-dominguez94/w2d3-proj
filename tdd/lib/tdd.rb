@@ -24,5 +24,19 @@ def my_transpose(array)
     end
   end
   result
+end
 
+def stock(array)
+  raise ArgumentError unless array.is_a?(Array)
+  pair = []
+  profit = 0
+  array.each_with_index do |el,i|
+    (i+1...array.length).each do |j|
+      if array[j] - el > profit
+        profit = array[j] - el
+        pair = [i,j]
+      end
+    end
+  end
+  pair
 end

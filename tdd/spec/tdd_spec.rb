@@ -53,3 +53,17 @@ describe '#my_transpose' do
     end
   end
 end
+
+describe '#stock' do
+  context 'when given a valid argument' do
+    let(:array) {[30,350,50,500,200]}
+    it 'returns a pair of days' do
+      expect(stock(array)).to eq([0,3])
+    end
+  end
+  context 'when given an invalid argument' do
+    it 'raises an error' do
+      expect{stock("a")}.to raise_error(ArgumentError)
+    end
+  end
+end
