@@ -20,6 +20,9 @@ RSpec.describe Hanoi do
         expect { game.move(0,2) }.to raise_error("cannot move onto smaller disk")
       end
     end
+    it 'makes a valid move' do
+      expect(game.move(0,2)).to eq([1])
+    end
   end
 
 end
