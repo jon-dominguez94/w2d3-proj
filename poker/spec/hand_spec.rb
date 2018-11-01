@@ -111,4 +111,11 @@ RSpec.describe Hand do
       expect(random.is_fullhouse?).to be(false)
     end
   end
+
+  describe '#get_score' do
+    it 'returns a score for the type of hand' do
+      expect(royal.get_score).to eq(21)
+      expect(random.get_score).to eq(11)
+    end
+  end
 end
