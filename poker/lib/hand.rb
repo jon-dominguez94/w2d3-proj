@@ -11,6 +11,19 @@ class Hand
     @user_hand = user_hand
   end
 
+  def get_score
+    return 21 if is_royal?
+    return 20 if is_straight_flush?
+    return 19 if is_four?
+    return 18 if is_fullhouse?
+    return 17 if is_flush?
+    return 16 if is_straight?
+    return 15 if is_three?
+    return 14 if two_pair?
+    return 13 if a_pair?
+    user_hand.map {|card| VALUES.index(card.value) }.sort[-1]
+  end
+
   def is_royal?
     idxs = user_hand.map {|card| VALUES.index(card.value) }.sort
     is_straight_flush? && (idxs == [8,9,10,11,12])
