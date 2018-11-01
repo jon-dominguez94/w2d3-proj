@@ -101,4 +101,14 @@ RSpec.describe Hand do
     end
   end
 
+  let(:full) { Hand.new([card,card,k_h,k_h,k_h]) }
+
+  describe '#is_fullhouse?' do
+    it 'returns true if hand is a fullhouse' do
+      expect(full.is_fullhouse?).to be(true)
+    end
+    it 'returns false if hand is not a fullhouse' do
+      expect(random.is_fullhouse?).to be(false)
+    end
+  end
 end
