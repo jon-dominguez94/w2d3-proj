@@ -92,4 +92,13 @@ RSpec.describe Hand do
     end
   end
 
+  describe '#two_pair?' do
+    it 'returns true if hand is a two pair' do
+      expect(two_p.two_pair?).to be(true)
+    end
+    it 'returns false if hand is not a two pair' do
+      expect(random.two_pair?).to be(false)
+    end
+  end
+
 end
